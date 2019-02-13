@@ -31,7 +31,7 @@ void CppSpecialToken::extract() throw (string)
 
     switch (current_ch)
     {
-        // Single-character special symbols.
+
         case '~': case '!': case '@': case '%': case '^':
         case '&': case '*': case '-': case '+': case '=':
         case '|': case '/': case ':': case ';': case '?':
