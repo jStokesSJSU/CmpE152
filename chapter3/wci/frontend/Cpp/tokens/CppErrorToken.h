@@ -1,72 +1,46 @@
 /**
- * <h1>CppStringToken</h1>
+ * <h1>PascalErrorToken</h1>
  *
- * <p> Cpp string tokens.</p>
+ * <p>Pascal error token.</p>
  *
  * <p>Copyright (c) 2017 by Ronald Mak</p>
  * <p>For instructional purposes only.  No warranties.</p>
  */
+#ifndef WCI_FRONTEND_CPP_TOKENS_CPPERRORTOKEN_H_
+#define WCI_FRONTEND_CPP_TOKENS_CPPERRORTOKEN_H_
+
 #include <string>
-#include "CppStringToken.h"
 #include "../CppError.h"
+#include "../CppToken.h"
 
 namespace wci { namespace frontend { namespace cpp { namespace tokens {
 
 using namespace std;
-using namespace wci::frontend;
 using namespace wci::frontend::cpp;
 
-CppStringToken::CppStringToken(Source *source) throw (string)
-    : CppToken(source)
+class CppErrorToken : public CppToken
 {
-    extract();
-}
+public:
+	/**
+	 * Constructor.
+	 * @param source the source from where to fetch subsequent characters.
+	 * @param errorCode the error code.
+	 * @param tokenText the text of the erroneous token.
+	 * @throw a string message if an error occurred.
+	 */
+	CppErrorToken(Source *source, CppErrorCode error_code,
+			string token_text)
+throw (string);
 
-void CppStringToken::extract() throw (string)
-{
-    string value_str = "";
+protected:
+	/**
+	 * Do nothing.  Do not consume any source characters.
+	 * Override of wci::frontend::Token.
+	 * @throw a string message if an error occurred.
+	 */
+	void extract() throw (string);
+};
 
-    char current_ch = next_char();  // consume initial quote
-    text += "'";
+}}}}  // namespace wci::frontend::cpp::tokens
 
-    // Get string characters.
-    do
-    {
-        // Replace any whitespace character with a blank.
-        if (isspace(current_ch)) current_ch = ' ';
-
-        if ((current_ch != '\'') && (current_ch != EOF))
-        {
-            text += current_ch;
-            value_str  += current_ch;
-            current_ch = next_char();  // consume character
-        }
-
-        // Quote?  Each pair of adjacent quotes represents a single-quote.
-        if (current_ch == '\'')
-        {
-            while ((current_ch == '\\') && (peek_char() == '\"'))
-            {
-                text += "\"";
-                value_str  += current_ch;  // append single-quote
-                current_ch = next_char();  // consume pair of quotes
-                current_ch = next_char();
-            }
-        }
-    } while ((current_ch != '\'') && (current_ch != Source::END_OF_FILE));
-
-    if (current_ch == '\'')
-    {
-        next_char();  // consume final quote
-        text += '\'';
-        type = (TokenType) PT_STRING;
-        value = value_str;
-    }
-    else
-    {
-        type = (TokenType) PT_ERROR;
-        value = (int) UNEXPECTED_EOF;
-    }
-}
-
-}}}}  // namespace wci::frontend::pascal::tokens
+#endif /* WCI_FRONTEND_CPP_TOKENS_CPPERRORTOKEN_H_ */
