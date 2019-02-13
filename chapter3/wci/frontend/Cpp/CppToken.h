@@ -134,6 +134,8 @@ constexpr CppTokenType CT_COMMENT = CppTokenType::COMMENT;
 constexpr CppTokenType CT_OP_COMMENT = CppTokenType::OP_COMMENT;
 constexpr CppTokenType CT_CL_COMMENT = CppTokenType::CL_COMMENT;
 
+constexpr CppTokenType CT_IDENTIFIER = CppTokenType::IDENTIFIER;
+
 
 
 
@@ -164,8 +166,3 @@ private:
 };
 
 }}}  // namespace wci::frontend::pascal
-
-
-
-
-#endif /* WCI_FRONTEND_CPP_CPPTOKEN_H_ */
