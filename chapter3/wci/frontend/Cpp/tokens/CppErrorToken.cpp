@@ -17,8 +17,7 @@ using namespace wci::frontend::cpp;
 
 CppErrorToken::CppErrorToken(Source *source, CppErrorCode error_code,
                                    string token_text)
-    throw (string)
-    : CppToken(source)
+    throw (string) : CppToken(source)
 {
     type = (TokenType) CT_ERROR;
     text = token_text;
