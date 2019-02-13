@@ -17,7 +17,7 @@ using namespace wci::frontend::cpp
 
 
 CppSpecialToken::CppSpecialToken(Source *source) throw (string)
-    : JavaToken(source)
+    : CppToken(source)
 {
     extract();
 }
@@ -58,7 +58,6 @@ void CppSpecialToken::extract() throw (string)
             }
 
             break;
-
         }
 
         //:
@@ -73,7 +72,6 @@ void CppSpecialToken::extract() throw (string)
             }
 
             break;
-
         }
 
 
@@ -89,7 +87,6 @@ void CppSpecialToken::extract() throw (string)
             }
 
             break;
-
         }
 
         //@
@@ -104,7 +101,6 @@ void CppSpecialToken::extract() throw (string)
             }
 
             break;
-
         }
  
         //?
@@ -119,7 +115,6 @@ void CppSpecialToken::extract() throw (string)
             }
 
             break;
-
         }
 
  
@@ -135,7 +130,6 @@ void CppSpecialToken::extract() throw (string)
             }
 
             break;
-
         }
 
         //,
@@ -150,7 +144,6 @@ void CppSpecialToken::extract() throw (string)
             }
 
             break;
-
         }
 
         // + or ++ or +=
@@ -193,53 +186,51 @@ void CppSpecialToken::extract() throw (string)
 
         // < or <= or << or <<=
         case '<':
+	{
+		current_ch = next_char();  // consume '<';
+
+		if (current_ch == '=')
 		{
-			current_ch = next_char();  // consume '<';
+			text += current_ch;
+			next_char();  // consume '='
+		}
+		else if (current_ch == '<')
+		{
+			text += current_ch;
+			current_ch = next_char();  // consume '<'
 
 			if (current_ch == '=')
 			{
 				text += current_ch;
 				next_char();  // consume '='
 			}
-			else if (current_ch == '<')
-			{
-				text += current_ch;
-				current_ch = next_char();  // consume '<'
-
-				if (current_ch == '=')
-				{
-					text += current_ch;
-					next_char();  // consume '='
-				}
-			}
-
-			break;
 		}
+		break;
+	}
 
 		// > or >= or >> or >>=
-		case '>':
+	case '>':
+	{
+		current_ch = next_char();  // consume '>';
+
+		if (current_ch == '=')
 		{
-			current_ch = next_char();  // consume '>';
+			text += current_ch;
+			next_char();  // consume '='
+		}
+		else if (current_ch == '>')
+		{
+			text += current_ch;
+			current_ch = next_char();  // consume '>'
 
 			if (current_ch == '=')
 			{
 				text += current_ch;
 				next_char();  // consume '='
 			}
-			else if (current_ch == '>')
-			{
-				text += current_ch;
-				current_ch = next_char();  // consume '>'
-
-				if (current_ch == '=')
-				{
-					text += current_ch;
-					next_char();  // consume '='
-				}
-			}
-
-			break;
 		}
+		break;
+	}
 
 		// * or *= or */
 		case '*':
