@@ -19,7 +19,7 @@ using namespace std;
 using namespace wci::frontend;
 
 /**
- * Pascal token types.
+ * Cpp token types.
  */
 enum class CppTokenType
 {
@@ -135,11 +135,11 @@ constexpr CppTokenType CT_OP_COMMENT = CppTokenType::OP_COMMENT;
 constexpr CppTokenType CT_CL_COMMENT = CppTokenType::CL_COMMENT;
 
 constexpr CppTokenType CT_IDENTIFIER = CppTokenType::IDENTIFIER;
-
-
-
-
-
+constexpr CppTokenType CT_INTEGER = CppTokenType::INTEGER;
+constexpr CppTokenType CT_REAL = CppTokenType::REAL;
+constexpr CppTokenType CT_STRING = CppTokenType::STRING;
+constexpr CppTokenType CT_ERROR = CppTokenType::ERROR;
+constexpr CppTokenType CT_END_OF_FILE = CppTokenType::END_OF_FILE;
 
 class CppToken : public Token
 {
@@ -165,4 +165,9 @@ private:
     static void initialize();
 };
 
-}}}  // namespace wci::frontend::pascal
+}}}  // namespace wci::frontend::cpp
+
+
+
+
+#endif /* WCI_FRONTEND_CPP_CPPTOKEN_H_ */
