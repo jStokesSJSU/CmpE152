@@ -13,7 +13,8 @@
 namespace wci { namespace frontend { namespace cpp { namespace tokens {
 
 using namespace std;
-using namespace wci::frontend::cpp
+using namespace wci::frontend;
+using namespace wci::frontend::cpp;
 
 
 CppSpecialToken::CppSpecialToken(Source *source) throw (string)
