@@ -24,7 +24,10 @@ CppNumberToken::CppNumberToken(Source *source) throw (string) : CppToken(source)
 {
 	extract();
 }
-
+/*
+ * Extracts number token from source
+ * Throws exception if error
+ */
 void CppNumberToken::extract() throw (string)
 {
 	string whole_digits = "";
@@ -96,7 +99,10 @@ void CppNumberToken::extract() throw (string)
 		}
 	}
 }
-
+/*
+ * Extracts and returns digits of an unsigned integer as a string
+ * Throws and exception if error
+ */
 string CppNumberToken::unsigned_integer_digits() throw (string)
 {
 	char current_ch = current_char();
@@ -118,7 +124,9 @@ string CppNumberToken::unsigned_integer_digits() throw (string)
 
 	return digits;
 }
-
+/*
+ * Computes input string and returns an integer value
+ */
 int CppNumberToken::computer_integer_value(string digits)
 {
 	if(digits == "") return 0;
@@ -142,7 +150,11 @@ int CppNumberToken::computer_integer_value(string digits)
 		return 0;
 	}
 }
-
+/*
+ * Computes float value given digits before and after decimal point as string inouts.
+ * Computes exponential if given value is not '0'
+ * returns value as a float
+ */
 float CppNumberToken::compute_float_value(string whole_digits,
 										   string fraction_digits,
 										   string exponent_digits,
