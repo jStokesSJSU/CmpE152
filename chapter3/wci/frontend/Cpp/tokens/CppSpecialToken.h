@@ -14,10 +14,10 @@
 #include "../CppToken.h"
 #include "../CppSpecialToken.h"
 
-namespace wci { namespace frontend { namespace cpp { namespace tokens {
+namespace wci { namespace frontend { namespace Cpp { namespace tokens {
 
 using namespace std;
-using namespace wci::frontend:cpp
+using namespace wci::frontend::Cpp;
 
 class CppSpecialToken : public CppToken
 {
@@ -41,4 +41,3 @@ protected:
 }}}}  // namespace wci::frontend::cpp::tokens
 
 #endif /* WCI_FRONTEND_CPP_TOKENS_CPPSPECIALTOKEN_H_ */
-

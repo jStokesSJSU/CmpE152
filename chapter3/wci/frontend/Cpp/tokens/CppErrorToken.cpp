@@ -10,10 +10,10 @@
 #include "../../Token.h"
 #include "../CppToken.h"
 
-namespace wci { namespace frontend { namespace cpp { namespace tokens {
+namespace wci { namespace frontend { namespace Cpp { namespace tokens {
 
 using namespace std;
-using namespace wci::frontend::cpp;
+using namespace wci::frontend::Cpp;
 
 CppErrorToken::CppErrorToken(Source *source, CppErrorCode error_code,
                                    string token_text)

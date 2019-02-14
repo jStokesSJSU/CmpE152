@@ -1,11 +1,3 @@
-/**
- * <h1>PascalErrorToken</h1>
- *
- * <p>Pascal error token.</p>
- *
- * <p>Copyright (c) 2017 by Ronald Mak</p>
- * <p>For instructional purposes only.  No warranties.</p>
- */
 #ifndef WCI_FRONTEND_CPP_TOKENS_CPPERRORTOKEN_H_
 #define WCI_FRONTEND_CPP_TOKENS_CPPERRORTOKEN_H_
 
@@ -13,10 +5,10 @@
 #include "../CppError.h"
 #include "../CppToken.h"
 
-namespace wci { namespace frontend { namespace cpp { namespace tokens {
+namespace wci { namespace frontend { namespace Cpp { namespace tokens {
 
 using namespace std;
-using namespace wci::frontend::cpp;
+using namespace wci::frontend::Cpp;
 
 class CppErrorToken : public CppToken
 {

@@ -12,10 +12,10 @@
 #include <string>
 #include "../CppToken.h"
 
-namespace wci { namespace frontend { namespace cpp { namespace tokens {
+namespace wci { namespace frontend { namespace Cpp { namespace tokens {
 
 using namespace std;
-using namespace wci::frontend::cpp;
+using namespace wci::frontend::Cpp;
 
 class CppStringToken : public CppToken
 {

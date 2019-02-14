@@ -10,14 +10,14 @@
 #include "CppStringToken.h"
 #include "../CppError.h"
 
-namespace wci { namespace frontend { namespace cpp { namespace tokens {
+
+namespace wci { namespace frontend { namespace Cpp { namespace tokens {
 
 using namespace std;
 using namespace wci::frontend;
-using namespace wci::frontend::cpp;
+using namespace wci::frontend::Cpp;
 
-CppStringToken::CppStringToken(Source *source) throw (string)
-    : CppToken(source)
+CppStringToken::CppStringToken(Source *source) throw (string) : CppToken(source)
 {
     extract();
 }
@@ -59,12 +59,12 @@ void CppStringToken::extract() throw (string)
     {
         next_char();  // consume final quote
         text += '\'';
-        type = (TokenType) PT_STRING;
+        type = (TokenType) CT_STRING;
         value = value_str;
     }
     else
     {
-        type = (TokenType) PT_ERROR;
+        type = (TokenType) CT_ERROR;
         value = (int) UNEXPECTED_EOF;
     }
 }
