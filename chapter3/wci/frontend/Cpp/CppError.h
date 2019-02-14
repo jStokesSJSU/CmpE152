@@ -12,7 +12,7 @@
 #include <string>
 #include <map>
 
-namespace wci { namespace frontend { namespace cpp {
+namespace wci { namespace frontend { namespace Cpp {
 
 using namespace std;
 
