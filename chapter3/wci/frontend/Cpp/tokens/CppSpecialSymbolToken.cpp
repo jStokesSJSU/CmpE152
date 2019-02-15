@@ -9,7 +9,7 @@
 #include <map>
 #include "../Token.h"
 #include "../Source.h"
-#include "CppSpecialToken.h"
+#include "CppSpecialSymbolToken.h"
 #include "CppToken.h"
 #include "CppError.h"
 
@@ -19,7 +19,7 @@ using namespace std;
 using namespace wci::frontend;
 using namespace wci::frontend::Cpp;
 
-CppSpecialToken::CppSpecialToken(Source *source) throw (string) : CppToken(source)
+CppSpecialToken::CppSpecialSymbolToken(Source *source) throw (string) : CppToken(source)
 {
 	extract();
 }
