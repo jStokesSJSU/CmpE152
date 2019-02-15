@@ -1,5 +1,5 @@
 /*
- * CppSpecialToken.h
+ * CppSpecialSymbolToken.cpp
  *
  *  Created on: Feb 7, 2019
  *      Author: david
@@ -20,13 +20,13 @@ using namespace std;
 using namespace wci::frontend::cpp
 
 
-CppSpecialToken::CppSpecialSymbolToken(Source *source) throw (string)
+CppSpecialSymbolToken::CppSpecialSymbolToken(Source *source) throw (string)
     : CppToken(source)
 {
     extract();
 }
 
-void CppSpecialToken::extract() throw (string)
+void CppSpecialSymbolToken::extract() throw (string)
 {
     char current_ch = current_char();
     bool good_symbol = true;
