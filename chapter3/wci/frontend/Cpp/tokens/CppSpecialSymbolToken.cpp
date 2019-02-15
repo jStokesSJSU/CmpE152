@@ -157,100 +157,113 @@ void CppSpecialSymbolToken::extract() throw (string)
         }
 
         //'
-        case '\''
+        case '\'':
         {
-        	current_ch = nextchar(); //consume ''';
+        	current_ch = next_char(); //consume ''';
 
         	if (current_ch == '\'')
         	{
         		text += current_ch;
         		next_char(); //consume ''';
         	}
+
+        	break;
         }
 
         //"
-        case '"'
+        case '"':
         {
-        	current_ch = nextchar(); //consume '"';
+        	current_ch = next_char(); //consume '"';
 
         	if (current_ch == '"')
         	{
         		text += current_ch;
         		next_char(); //consume '"';
         	}
+
+        	break;
         }     
 
         //(
-        case '('
+        case '(':
         {
-        	current_ch = nextchar(); //consume '();
+        	current_ch = next_char(); //consume '();
 
-        	if (current_ch == '('
+        	if (current_ch == '(')
         	{
         		text += current_ch;
         		next_char(); //consume '(';
         	}
+
+        	break;
         }
 
          //)
-        case ')'
+        case ')':
         {
-        	current_ch = nextchar(); //consume ')';
+        	current_ch = next_char(); //consume ')';
 
-        	if (current_ch == ')'
+        	if (current_ch == ')')
         	{
         		text += current_ch;
         		next_char(); //consume ')';
         	}
+        	break;
         }       
 
 	//[
-        case '['
+        case '[':
         {
-        	current_ch = nextchar(); //consume ')';
+        	current_ch = next_char(); //consume ')';
 
-        	if (current_ch == '['
+        	if (current_ch == '[')
         	{
         		text += current_ch;
         		next_char(); //consume '[';
         	}
+        	break;
         }   
 	
 	//]
-        case ']'
+        case ']':
         {
-        	current_ch = nextchar(); //consume ']';
+        	current_ch = next_char(); //consume ']';
 
-        	if (current_ch == ']'
+        	if (current_ch == ']')
         	{
         		text += current_ch;
         		next_char(); //consume ']';
         	}
+        	break;
         } 
 	
 	//{
-        case '{'
+        case '{':
         {
-        	current_ch = nextchar(); //consume '{';
+        	current_ch = next_char(); //consume '{';
 
-        	if (current_ch == '{'
+        	if (current_ch == '{')
         	{
         		text += current_ch;
         		next_char(); //consume '{';
         	}
+        	break;
         }        
 
 	//}
-        case '}'
+        case '}':
         {
-        	current_ch = nextchar(); //consume '}';
+        	current_ch = next_char(); //consume '}';
 
-        	if (current_ch == '}'
+        	if (current_ch == '}')
         	{
         		text += current_ch;
         		next_char(); //consume '}';
         	}
-        }    
+
+        	break;
+        }
+
 
         // + or ++ or +=
         case '+':
