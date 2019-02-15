@@ -171,7 +171,7 @@ void CppSpecialToken::extract() throw (string)
         	}
         }
 
-        //""
+        //"
         case '"'
         {
         	current_ch = nextchar(); //consume '"';
@@ -207,6 +207,7 @@ void CppSpecialToken::extract() throw (string)
         	}
         }       
 
+	//[
         case '['
         {
         	current_ch = nextchar(); //consume ')';
@@ -217,7 +218,8 @@ void CppSpecialToken::extract() throw (string)
         		next_char(); //consume '[';
         	}
         }   
-
+	
+	//]
         case ']'
         {
         	current_ch = nextchar(); //consume ']';
@@ -228,7 +230,8 @@ void CppSpecialToken::extract() throw (string)
         		next_char(); //consume ']';
         	}
         } 
-
+	
+	//{
         case '{'
         {
         	current_ch = nextchar(); //consume '{';
@@ -240,6 +243,7 @@ void CppSpecialToken::extract() throw (string)
         	}
         }        
 
+	//}
         case '}'
         {
         	current_ch = nextchar(); //consume '}';
@@ -315,7 +319,7 @@ void CppSpecialToken::extract() throw (string)
 		}
 
 		// > or >= or >> or >>=
-		case '>':
+	case '>':
 		{
 			current_ch = next_char();  // consume '>';
 
@@ -340,7 +344,7 @@ void CppSpecialToken::extract() throw (string)
 		}
 
 		// * or *= or */
-		case '*':
+	case '*':
 		{
 			current_ch = next_char();  // consume '*';
 
@@ -359,7 +363,7 @@ void CppSpecialToken::extract() throw (string)
 		}
 
 		// / or /= or /* or //
-		case '/':
+	case '/':
 		{
 			current_ch = next_char();  // consume '/';
 
@@ -383,7 +387,7 @@ void CppSpecialToken::extract() throw (string)
 		}
 
 		// = or ==
-		case '=':
+	case '=':
 		{
 			current_ch = next_char();  // consume '=';
 
@@ -397,7 +401,7 @@ void CppSpecialToken::extract() throw (string)
 		}
 
 		// | or |= or ||
-		case '|':
+	case '|':
 		{
 			current_ch = next_char();  // consume '=';
 
@@ -416,7 +420,7 @@ void CppSpecialToken::extract() throw (string)
 		}
 
 		// % or %=
-		case '%':
+	case '%':
 		{
 			current_ch = next_char();  // consume '%';
 
@@ -429,8 +433,8 @@ void CppSpecialToken::extract() throw (string)
 			break;
 		}
 
-		// & or &= or &&
-		case '&':
+	// & or &= or &&
+	case '&':
 		{
 			current_ch = next_char();  // consume '&';
 
@@ -448,8 +452,8 @@ void CppSpecialToken::extract() throw (string)
 			break;
 		}
 
-		// ^ or ^=
-		case '^':
+	// ^ or ^=
+	case '^':
 		{
 			current_ch = next_char();  // consume '^';
 
@@ -462,8 +466,8 @@ void CppSpecialToken::extract() throw (string)
 			break;
 		}
 
-		// ! or !=
-		case '!':
+	// ! or !=
+	case '!':
 		{
 			current_ch = next_char();  // consume '!';
 
