@@ -7,6 +7,7 @@
 #include <map>
 #include <string>
 #include <iostream>
+#include <ctype.h>
 #include "CppWordToken.h"
 #include "../CppError.h"
 

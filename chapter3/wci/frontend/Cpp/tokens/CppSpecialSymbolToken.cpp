@@ -10,6 +10,7 @@
 #include "../Token.h"
 #include "../Source.h"
 #include "CppSpecialSymbolToken.h"
+#include "CppError.h"
 
 namespace wci { namespace frontend { namespace Cpp { namespace tokens {
 
@@ -493,8 +494,8 @@ void CppSpecialSymbolToken::extract() throw (string)
         default:
         {
             next_char();  // consume bad character
-            type = (TokenType) (PT_ERROR);
-            value = new DataValue((int) INVALID_CHARACTER);
+            type = (TokenType) (CT_ERROR);
+            value = (int) INVALID_CHARACTER;
             good_symbol = false;
         }
     }
