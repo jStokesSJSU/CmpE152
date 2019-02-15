@@ -5,23 +5,25 @@
  *      Author: david
  */
 
+
+#ifndef WCI_FRONTEND_CPP_TOKENS_CPPSPECIALSYMBOLTOKEN_H_
+#define WCI_FRONTEND_CPP_TOKENS_CPPSPECIALSYMBOLTOKEN_H_
+
 #include <string>
 #include <map>
 #include "../Token.h"
 #include "../Source.h"
-#include "CppSpecialSymbolToken.h"
-#include "CppToken.h"
-#include "CppError.h"
 
-namespace wci { namespace frontend { namespace Cpp { namespace tokens {
+namespace wci { namespace frontend { namespace cpp { namespace tokens {
 
 using namespace std;
-using namespace wci::frontend;
-using namespace wci::frontend::Cpp;
+using namespace wci::frontend::cpp
 
-CppSpecialToken::CppSpecialSymbolToken(Source *source) throw (string) : CppToken(source)
+
+CppSpecialToken::CppSpecialSymbolToken(Source *source) throw (string)
+    : CppToken(source)
 {
-	extract();
+    extract();
 }
 
 void CppSpecialToken::extract() throw (string)
@@ -33,15 +35,17 @@ void CppSpecialToken::extract() throw (string)
 
     switch (current_ch)
     {
-
+        // Single-character special symbols.
         case '~': case '!': case '@': case '%': case '^':
         case '&': case '*': case '-': case '+': case '=':
         case '|': case '/': case ':': case ';': case '?':
-        case '<': case '>': case '.': case ',': case'++':
-        case '--': case '<<': case '>>': case '<=': case '>=':
-        case '+=': case '/=': case '==': case '|=': case '%=':
-        case '&=': case '^=': case '!=': case '<<=': case '>>=':
-        case '||': case '&&': case '//': case '/*': case '*/':
+        case '<': case '>': case '.': case ',': case '\'':
+        case '"': case '(': case ')': case '[': case ']':
+        case '{': case '}': case'++':case '--': case '<<': 
+        case '>>': case '<=': case '>=': case '+=': case '/=': 
+        case '==': case '|=': case '%=': case '&=': case '^=': 
+        case '!=': case '<<=': case '>>=':case '||': case '&&': 
+        case '//': case '/*': case '*/':
 
         {
             next_char();  // consume character
@@ -52,7 +56,7 @@ void CppSpecialToken::extract() throw (string)
         case '~':
         {
             current_ch = next_char();  // consume '~';
-
+ 			
  			if (current_ch == '~')
             {
                 text += current_ch;
@@ -60,13 +64,14 @@ void CppSpecialToken::extract() throw (string)
             }
 
             break;
+
         }
 
         //:
         case ':':
         {
             current_ch = next_char();  // consume ':';
-
+ 			
  			if (current_ch == ':')
             {
                 text += current_ch;
@@ -74,6 +79,7 @@ void CppSpecialToken::extract() throw (string)
             }
 
             break;
+
         }
 
 
@@ -81,7 +87,7 @@ void CppSpecialToken::extract() throw (string)
         case ';':
         {
             current_ch = next_char();  // consume ';';
-
+ 			
  			if (current_ch == ';')
             {
                 text += current_ch;
@@ -89,13 +95,14 @@ void CppSpecialToken::extract() throw (string)
             }
 
             break;
+
         }
 
         //@
         case '@':
         {
             current_ch = next_char();  // consume '@';
-
+ 			
  			if (current_ch == '@')
             {
                 text += current_ch;
@@ -103,13 +110,14 @@ void CppSpecialToken::extract() throw (string)
             }
 
             break;
-        }
 
+        }
+ 
         //?
         case '?':
         {
             current_ch = next_char();  // consume '?';
-
+ 			
  			if (current_ch == '?')
             {
                 text += current_ch;
@@ -117,14 +125,15 @@ void CppSpecialToken::extract() throw (string)
             }
 
             break;
+
         }
 
-
+ 
         //.
         case '.':
         {
             current_ch = next_char();  // consume '.';
-
+ 			
  			if (current_ch == '.')
             {
                 text += current_ch;
@@ -132,13 +141,14 @@ void CppSpecialToken::extract() throw (string)
             }
 
             break;
+
         }
 
         //,
         case ',':
         {
             current_ch = next_char();  // consume ',';
-
+ 			
  			if (current_ch == ',')
             {
                 text += current_ch;
@@ -146,7 +156,100 @@ void CppSpecialToken::extract() throw (string)
             }
 
             break;
+
         }
+
+        //'
+        case '\''
+        {
+        	current_ch = nextchar(); //consume ''';
+
+        	if (current_ch == '\'')
+        	{
+        		text += current_ch;
+        		next_char(); //consume ''';
+        	}
+        }
+
+        //""
+        case '"'
+        {
+        	current_ch = nextchar(); //consume '"';
+
+        	if (current_ch == '"')
+        	{
+        		text += current_ch;
+        		next_char(); //consume '"';
+        	}
+        }     
+
+        //(
+        case '('
+        {
+        	current_ch = nextchar(); //consume '();
+
+        	if (current_ch == '('
+        	{
+        		text += current_ch;
+        		next_char(); //consume '(';
+        	}
+        }
+
+         //)
+        case ')'
+        {
+        	current_ch = nextchar(); //consume ')';
+
+        	if (current_ch == ')'
+        	{
+        		text += current_ch;
+        		next_char(); //consume ')';
+        	}
+        }       
+
+        case '['
+        {
+        	current_ch = nextchar(); //consume ')';
+
+        	if (current_ch == '['
+        	{
+        		text += current_ch;
+        		next_char(); //consume '[';
+        	}
+        }   
+
+        case ']'
+        {
+        	current_ch = nextchar(); //consume ']';
+
+        	if (current_ch == ']'
+        	{
+        		text += current_ch;
+        		next_char(); //consume ']';
+        	}
+        } 
+
+        case '{'
+        {
+        	current_ch = nextchar(); //consume '{';
+
+        	if (current_ch == '{'
+        	{
+        		text += current_ch;
+        		next_char(); //consume '{';
+        	}
+        }        
+
+        case '}'
+        {
+        	current_ch = nextchar(); //consume '}';
+
+        	if (current_ch == '}'
+        	{
+        		text += current_ch;
+        		next_char(); //consume '}';
+        	}
+        }    
 
         // + or ++ or +=
         case '+':
@@ -188,51 +291,53 @@ void CppSpecialToken::extract() throw (string)
 
         // < or <= or << or <<=
         case '<':
-	{
-		current_ch = next_char();  // consume '<';
-
-		if (current_ch == '=')
 		{
-			text += current_ch;
-			next_char();  // consume '='
-		}
-		else if (current_ch == '<')
-		{
-			text += current_ch;
-			current_ch = next_char();  // consume '<'
+			current_ch = next_char();  // consume '<';
 
 			if (current_ch == '=')
 			{
 				text += current_ch;
 				next_char();  // consume '='
 			}
+			else if (current_ch == '<')
+			{
+				text += current_ch;
+				current_ch = next_char();  // consume '<'
+
+				if (current_ch == '=')
+				{
+					text += current_ch;
+					next_char();  // consume '='
+				}
+			}
+
+			break;
 		}
-		break;
-	}
 
 		// > or >= or >> or >>=
-	case '>':
-	{
-		current_ch = next_char();  // consume '>';
-
-		if (current_ch == '=')
+		case '>':
 		{
-			text += current_ch;
-			next_char();  // consume '='
-		}
-		else if (current_ch == '>')
-		{
-			text += current_ch;
-			current_ch = next_char();  // consume '>'
+			current_ch = next_char();  // consume '>';
 
 			if (current_ch == '=')
 			{
 				text += current_ch;
 				next_char();  // consume '='
 			}
+			else if (current_ch == '>')
+			{
+				text += current_ch;
+				current_ch = next_char();  // consume '>'
+
+				if (current_ch == '=')
+				{
+					text += current_ch;
+					next_char();  // consume '='
+				}
+			}
+
+			break;
 		}
-		break;
-	}
 
 		// * or *= or */
 		case '*':
@@ -374,8 +479,8 @@ void CppSpecialToken::extract() throw (string)
         default:
         {
             next_char();  // consume bad character
-            type = (TokenType) (CT_ERROR);
-            value = (int) INVALID_CHARACTER;
+            type = (TokenType) (PT_ERROR);
+            value = new DataValue((int) INVALID_CHARACTER);
             good_symbol = false;
         }
     }
