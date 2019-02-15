@@ -5,10 +5,6 @@
  *      Author: david
  */
 
-
-#ifndef WCI_FRONTEND_CPP_TOKENS_CPPSPECIALSYMBOLTOKEN_H_
-#define WCI_FRONTEND_CPP_TOKENS_CPPSPECIALSYMBOLTOKEN_H_
-
 #include <string>
 #include <map>
 #include "../Token.h"
