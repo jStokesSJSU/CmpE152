@@ -35,6 +35,7 @@ protected:
      * @throw a string message if an error occurred.
      */
     void extract() throw (string);
+
 };
 
 }}}}  // namespace wci::frontend::cpp::tokens

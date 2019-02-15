@@ -9,11 +9,12 @@
 #include <map>
 #include "../Token.h"
 #include "../Source.h"
+#include "CppSpecialSymbolToken.h"
 
-namespace wci { namespace frontend { namespace cpp { namespace tokens {
+namespace wci { namespace frontend { namespace Cpp { namespace tokens {
 
 using namespace std;
-using namespace wci::frontend::cpp
+using namespace wci::frontend::Cpp;
 
 
 CppSpecialSymbolToken::CppSpecialSymbolToken(Source *source) throw (string)
