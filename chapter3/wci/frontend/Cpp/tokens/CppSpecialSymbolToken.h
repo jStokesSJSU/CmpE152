@@ -1,25 +1,24 @@
 /*
- * CppSpecialToken.h
+ * CppSpecialSymbolToken.h
  *
  *  Created on: Feb 7, 2019
  *      Author: david
  */
 
 
-#ifndef WCI_FRONTEND_CPP_CPPSPECIALTOKEN_H_
-#define WCI_FRONTEND_CPP_CPPSPECIALTOKEN_H_
+#ifndef WCI_FRONTEND_CPP_CPPSPECIALSYMBOLTOKEN_H_
+#define WCI_FRONTEND_CPP_CPPSPECIALSYMBOLTOKEN_H_
 
 #include <string>
 #include <map>
 #include "../CppToken.h"
-#include "../CppSpecialToken.h"
 
 namespace wci { namespace frontend { namespace Cpp { namespace tokens {
 
 using namespace std;
 using namespace wci::frontend::Cpp;
 
-class CppSpecialToken : public CppToken
+class CppSpecialSymbolToken : public CppToken
 {
 public:
     /**
@@ -27,7 +26,7 @@ public:
      * @param source the source from where to fetch the token's characters.
      * @throw a string message if an error occurred.
      */
-    CppSpecialToken(Source *source) throw (string);
+    CppSpecialSymbolToken(Source *source) throw (string);
 
 protected:
     /**
@@ -40,4 +39,4 @@ protected:
 
 }}}}  // namespace wci::frontend::cpp::tokens
 
-#endif /* WCI_FRONTEND_CPP_TOKENS_CPPSPECIALTOKEN_H_ */
+#endif /* WCI_FRONTEND_CPP_TOKENS_CPPSPECIALSYMBOLTOKEN_H_ */
